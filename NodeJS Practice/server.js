@@ -1,23 +1,28 @@
 const express = require("express");
-const mongoose = require("mongoose")
-require('dotenv/config')
 const app = express();
+const bodyParser = require('body-parser');
+const mongoose = require("mongoose");
 
-// Create route handler
-app.get('/' , (req, res) => {
-    res.send("Hello world")
-});
+require('dotenv/config')
 
-app.get('/people' , (req, res) => {
-    res.send("Data with people")
-});
+// used to handle json data
+app.use(bodyParser.json());
 
+
+// Import Routes
+const peopleRoute = require('./routes/people');
+
+// Route
+app.use('/people', peopleRoute);
 
 // Connect to DB
 mongoose.connect(process.env.DB_CONNECT, {
-    useNewUrlParser: true },
-    () => {
-    console.log("Connected to database")
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(() => console.log('DB Connected!'))
+.catch(err => {
+    console.log("Connection Error: ", err.message);
 });
 
 // Listen to a port
