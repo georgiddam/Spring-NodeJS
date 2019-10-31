@@ -4,7 +4,14 @@ const router = express.Router();
 const Person = require('../models/Person')
 // Create route handler
 router.get('/' , (req, res) => {
-    res.send("Data with people")
+    console.log(Person.find());
+    Person.find()
+    .then(data => {
+        res.json(data);
+    })
+    .catch(err => {
+        res.json({message:err});
+    });
 });
 
 router.post('/', (req,res) => {
@@ -15,7 +22,6 @@ router.post('/', (req,res) => {
     });
     person.save()
         .then(data => {
-            console.log("Reach");
             res.json(data);
         })
         .catch(err => {
