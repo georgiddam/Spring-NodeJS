@@ -4,15 +4,21 @@ public class Person {
     private long id;
     private String name;
     private String message;
+    private boolean toDelete;
 
-    public Person(long id, String name, String message) {
+    public Person(long id, String name, String message, boolean ToDelete) {
         this.id = id;
         this.name = name;
         this.message = message;
+        this.toDelete = toDelete;
     }
 
     public long getId() {
         return id;
+    }
+
+    public boolean isToDelete() {
+        return toDelete;
     }
 
     public String getIdString() {

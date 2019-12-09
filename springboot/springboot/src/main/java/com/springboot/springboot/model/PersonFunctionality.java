@@ -1,25 +1,44 @@
 package com.springboot.springboot.model;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.DeleteMapping;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Component("pFunction")
 public class PersonFunctionality {
     private List<Person> people = new ArrayList<>();
     private AtomicLong id = new AtomicLong();
+    Timer timer = new Timer();
 
     public PersonFunctionality() {
 //      Creating a base
-        people.add(new Person(id.incrementAndGet(),"Bob", "Newbie"));
-        people.add(new Person(id.incrementAndGet(), "Martin", "Newbie2"));
+        people.add(new Person(id.incrementAndGet(),"Bob", "Newbie", false));
+        people.add(new Person(id.incrementAndGet(), "Martin", "Newbie2", false));
     }
 
     public Person createPerson(Person person) {
-        person.setId(id.incrementAndGet());
+        Long storeId = id.incrementAndGet();
+        person.setId(storeId);
         people.add(person);
+
+//      Check if it has been set to be deleted.
+        if (person.isToDelete()) {
+            timerToDelete(storeId);
+        }
         return person;
+    }
+
+    public void timerToDelete(Long id) {
+        timer.schedule(new TimerTask() {
+            public void run() {
+                deletePersonById(String.valueOf(id));
+            }
+        } , 10*1000);
     }
 
     public List<Person> getPeople() {
@@ -41,4 +60,10 @@ public class PersonFunctionality {
             }
         }
     }
+//  Deletes a user based on the id entered in the url
+    public void deletePersonById(String id) {
+        Person personDel = people.stream().filter(p -> p.getIdString().equals(id)).findFirst().get();
+        people.remove(personDel);
+    }
+
 }

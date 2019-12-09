@@ -40,4 +40,10 @@ public class PersonController {
     public void changePerson(@RequestBody Person person, @PathVariable String id) {
         pFunction.changePersonById(person, id);
     }
+
+//  Use Person's ID to delete their entry
+    @DeleteMapping("person/{id}")
+    public void deletePersonById(@PathVariable String id) {
+        pFunction.deletePersonById(id);
+    }
 }
