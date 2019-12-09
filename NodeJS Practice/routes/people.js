@@ -29,4 +29,22 @@ router.post('/', (req,res) => {
         });
 });
 
+// Get specific post
+
+router.get('/:postId', (req,res) => {
+    try {
+        const post = Post.findByID(req.params.postId);
+        res.json(post);
+    } catch (e) {
+        res.json({message:err});
+    }
+})
+
+// Delete specific post
+router.get('/:postId', (req,res) => {
+    // Here I am comparing the parameter _id in the mongodb to the value that is input in the url and if they match, remove it.
+    // The ':' sign matches
+    Post.remove({_id: 'req.params.postId'})
+})
+
 module.exports = router;
