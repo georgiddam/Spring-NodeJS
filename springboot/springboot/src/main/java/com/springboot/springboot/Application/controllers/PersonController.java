@@ -1,7 +1,8 @@
-package com.springboot.springboot.controllers;
+package com.springboot.springboot.Application.controllers;
 
-import com.springboot.springboot.model.Person;
-import com.springboot.springboot.model.PersonFunctionality;
+import com.springboot.springboot.Application.model.Person;
+import com.springboot.springboot.Application.model.PersonFunctionality;
+import com.springboot.springboot.Application.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,9 @@ public class PersonController {
     @Autowired
     private PersonFunctionality pFunction;
 
+    @Autowired
+    private PersonRepository repo;
+
     @GetMapping("/hello")
     public String helloMessage(){
         return "Hello Spring World";
@@ -21,7 +25,13 @@ public class PersonController {
 //  Testing this using postman app
     @PostMapping("/people")
     public void addNewPerson(@RequestBody Person person ) {
-        pFunction.createPerson(person);
+        Person storePerson = pFunction.createPerson(person);
+        repo.save(storePerson);
+    }
+
+    @PutMapping("/people")
+    public void addToDatabase(@RequestBody Person person ) {
+        repo.save(pFunction.createPerson(person));
     }
 
     @GetMapping("/people")

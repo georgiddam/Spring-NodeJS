@@ -1,10 +1,18 @@
-package com.springboot.springboot.model;
+package com.springboot.springboot.Application.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "people")
 public class Person {
+    @Id
     private long id;
+
     private String name;
     private String message;
     private boolean toDelete;
+
+    public Person() {}
 
     public Person(long id, String name, String message, boolean ToDelete) {
         this.id = id;
@@ -43,5 +51,12 @@ public class Person {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Person[id=%s, name='%s', message='%s']",
+                id, name, message);
     }
 }

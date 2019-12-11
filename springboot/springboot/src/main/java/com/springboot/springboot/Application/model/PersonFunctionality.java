@@ -1,7 +1,6 @@
-package com.springboot.springboot.model;
+package com.springboot.springboot.Application.model;
 
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.ArrayList;
 import java.util.List;
