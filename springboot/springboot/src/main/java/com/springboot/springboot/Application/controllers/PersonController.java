@@ -26,6 +26,7 @@ public class PersonController {
     @PostMapping("/people")
     public void addNewPerson(@RequestBody Person person ) {
         Person storePerson = pFunction.createPerson(person);
+//      Save to MongoDB database (works only if id is unique)
         repo.save(storePerson);
     }
 
