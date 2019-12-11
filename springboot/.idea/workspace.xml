@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0191c3cb-35d6-4463-aeee-ee7521aacb94" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/springboot/springboot/SpringbootApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/springboot/springboot/Application/SpringbootApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/springboot/springboot/controllers/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/springboot/springboot/Application/controllers/PersonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/springboot/springboot/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/springboot/springboot/Application/model/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/com/springboot/springboot/model/PersonFunctionality.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/com/springboot/springboot/Application/model/PersonFunctionality.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

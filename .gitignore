@@ -87,7 +87,3 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
-springboot/springboot/src/main/resources/application.properties
-*.properties
-
-springboot/.idea/workspace.xml
